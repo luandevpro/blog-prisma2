@@ -34,12 +34,12 @@ exports.deleteUser = async (req, res) => {
   const user = await prisma.user.findOne({ where: { id: req.params.id } });
   const deletePost = await prisma.post.deleteMany({
     where: {
-      author: user,
+      user: user,
     },
   });
   const deleteUser = await prisma.user.delete({
     where: { id: req.params.id },
-    include: { post: true },
+    include: { posts: true },
   });
   Promise.all([deletePost, deleteUser]).then((values) => {
     return res.json(values);
