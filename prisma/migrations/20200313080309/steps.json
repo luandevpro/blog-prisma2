@@ -1,0 +1,51 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "categories",
+      "type": "Category",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "comments",
+      "type": "Comment",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Post",
+      "field": "category"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Post",
+      "field": "comment"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Comment",
+      "field": "category"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "posts",
+      "type": "Post",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Category",
+      "field": "comment"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Category",
+      "field": "post"
+    }
+  ]
+}

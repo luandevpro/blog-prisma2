@@ -1,0 +1,129 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "comment",
+      "type": "Comment",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "post",
+      "type": "Post",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "posts"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "comments"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "email"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "email"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "\"\""
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "category",
+      "type": "Category",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
+      "field": "comment",
+      "type": "Comment",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Post",
+      "field": "comments"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Comment",
+      "field": "category",
+      "type": "Category",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Comment",
+      "field": "categories"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "comment",
+      "type": "Comment",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Category",
+      "field": "post",
+      "type": "Post",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Category",
+      "field": "posts"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Category",
+          "field": "name"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Category",
+          "field": "name"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "\"\""
+    }
+  ]
+}
