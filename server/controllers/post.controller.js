@@ -30,6 +30,15 @@ exports.getPost = async (req, res) => {
           email: true,
         },
       },
+      categories: {
+        select: {
+          category: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
     },
   });
   res.json(post);
