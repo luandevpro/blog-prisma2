@@ -80,7 +80,21 @@ exports.getPosts = async (req, res) => {
 };
 
 exports.deletePost = async (req, res) => {
-  const post = await prisma.post.delete({ where: { id: req.params.id } });
+  const post = await prisma.post.delete({
+    where: { id: req.params.id },
+    select: {
+      id: true,
+      title: true,
+      description: false,
+      user: {
+        select: {
+          id: true,
+          email: true,
+          displayName: true,
+        },
+      },
+    },
+  });
   res.json(post);
 };
 
