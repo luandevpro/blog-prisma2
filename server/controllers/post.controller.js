@@ -13,6 +13,18 @@ exports.createPost = async (req, res) => {
   };
   const newPost = await prisma.post.create({
     data: dataPost,
+    select: {
+      id: true,
+      title: true,
+      description: false,
+      user: {
+        select: {
+          id: true,
+          email: true,
+          displayName: true,
+        },
+      },
+    },
   });
   res.json(newPost);
 };
@@ -28,6 +40,7 @@ exports.getPost = async (req, res) => {
         select: {
           id: true,
           email: true,
+          displayName: true,
         },
       },
       categories: {
@@ -58,6 +71,7 @@ exports.getPosts = async (req, res) => {
         select: {
           id: true,
           email: true,
+          displayName: true,
         },
       },
     },
